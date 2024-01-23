@@ -1,0 +1,20 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\workspace\\pcgproj\\plugins\\yhpcg\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\yhpcg\\module.yhpcg.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\workspace\\unrealengine\\engine\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\yhpcg\\definitions.yhpcg.h",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\intermediate\\build\\win64\\unrealeditor\\inc\\yhpcg\\uht\\yhpcg.init.gen.cpp",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\intermediate\\build\\win64\\unrealeditor\\inc\\yhpcg\\uht\\yhpcgbplibrary.gen.cpp",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\source\\yhpcg\\public\\yhpcgbplibrary.h",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\intermediate\\build\\win64\\unrealeditor\\inc\\yhpcg\\uht\\yhpcgbplibrary.generated.h",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\source\\yhpcg\\private\\yhpcg.cpp",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\source\\yhpcg\\public\\yhpcg.h",
+            "c:\\workspace\\pcgproj\\plugins\\yhpcg\\source\\yhpcg\\private\\yhpcgbplibrary.cpp"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

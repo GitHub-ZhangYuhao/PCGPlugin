@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.YHPCG.cpp.obj": [
+			"YHPCG.init.gen.cpp.obj",
+			"YHPCGBPLibrary.gen.cpp.obj",
+			"YHPCG.cpp.obj",
+			"YHPCGBPLibrary.cpp.obj"
+		]
+	}
+}
