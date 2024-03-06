@@ -27,7 +27,7 @@ public class YHPCG : ModuleRules
 			{
 				"Core",
 				"CoreUObject",
-				"Engine",
+				"Engine", "PCG",
 			}
 			);
 			
@@ -38,7 +38,7 @@ public class YHPCG : ModuleRules
 				"CoreUObject",
 				"Engine",
 				"Slate",
-				"SlateCore",
+				"SlateCore", "PCG",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
