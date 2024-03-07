@@ -4,7 +4,28 @@
 #include "MyPCGSettings.h"
 
 #include "PCGContext.h"
+#include "Data/PCGPointData.h"
+#include "Data/PCGSpatialData.h"
 
+namespace MyPCGSettings
+{
+	const FName InputLable = TEXT("MyInputPin");
+}
+
+#define LOCTEXT_NAMESPACE "UMyPCGSettings"
+TArray<FPCGPinProperties> UMyPCGSettings::InputPinProperties() const
+{
+	TArray<FPCGPinProperties> PinPropertieses;
+	PinPropertieses.Emplace(
+		MyPCGSettings::InputLable,
+		EPCGDataType::Point ,
+		true ,
+		true,
+		LOCTEXT("MyInputPinToolTip" , "My Input Pin Tooltip") );
+	
+	return PinPropertieses;
+}
+#undef LOCTEXT_NAMESPACE
 
 FPCGElementPtr UMyPCGSettings::CreateElement() const
 {
@@ -26,10 +47,24 @@ bool FMyPCGElemnt::ExecuteInternal(FPCGContext* Context) const
 	TRACE_CPUPROFILER_EVENT_SCOPE(FMyPCGElemnt::ExecuteInternal);
 	check(Context);
 
-	const UMyPCGSettings* Settings = Context->GetInputSettings<UMyPCGSettings>();
+	//读取MyInputPin
+	TArray<FPCGTaggedData> Inputs = Context->InputData.GetInputsByPin(MyPCGSettings::InputLable);
+	for(const FPCGTaggedData Input : Inputs)
+	{
+		//获取InputPin中的Points
+		const UPCGSpatialData* InputData = Cast<UPCGSpatialData>(Input.Data);
+		const UPCGPointData* PointData = InputData->ToPointData(Context);
+		const TArray<FPCGPoint>& Points = PointData->GetPoints();
 
-	FString ComponentName = Context->GetComponentName();
+		//打印每个Point的Transfrom信息
+		for(const FPCGPoint Point : Points)
+		{
+			const FTransform PointTransform = Point.Transform;
+			const FString TransformString = PointTransform.ToString();
+			GEngine->AddOnScreenDebugMessage(-1 , 5.0f , FColor::White , TransformString);
+		}
+	}
 	
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Emerald, /*FString::Printf(TEXT("FloatValue: %f"), Settings->FloatValue)*/ComponentName);
+	Context->OutputData.TaggedData = MoveTemp(Inputs);
 	return true;
 }

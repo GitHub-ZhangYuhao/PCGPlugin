@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿/*
+#pragma once
 
 #include "CoreMinimal.h"
 #include "Rendering/CustomRenderPass.h"
@@ -22,3 +23,4 @@ public:
 
 	FRenderTarget* OutRenderTarget = nullptr;
 };
+*/
