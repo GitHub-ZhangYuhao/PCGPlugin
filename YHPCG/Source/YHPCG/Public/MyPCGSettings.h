@@ -29,8 +29,13 @@ protected:
 	virtual FPCGElementPtr CreateElement() const override;
 	
 public:
+	UMyPCGSettings();
+	
 	UPROPERTY(BlueprintReadWrite , EditAnywhere , Category = Settings , meta = (PCG_Overridable))
 	float FloatValue = 0.f;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Settings)
+	FPCGAttributePropertyInputSelector AttributeSelector;
 };
 
 // PCGElement
